@@ -44,13 +44,12 @@ namespace CarRental_app
             {
                 isValid = false;
                 MessageBox.Show("opss, invalid date selection");
-
-            if(cost < 0)
-            {
-                isValid =false;
-                MessageBox.Show("cost has to be higher than 0 LKR");
             }
 
+            if (cost < 0)
+            {
+                isValid = false;
+                MessageBox.Show("cost has to be higher than 0 LKR");
             }
 
             if (CbTypeOfCar.SelectedItem == null)

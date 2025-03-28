@@ -52,7 +52,6 @@
             this.Title.TabIndex = 0;
             this.Title.Text = "Carva";
             this.Title.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Title.Click += new System.EventHandler(this.label1_Click);
             // 
             // Title2
             // 
@@ -63,7 +62,7 @@
             this.Title2.Size = new System.Drawing.Size(146, 22);
             this.Title2.TabIndex = 1;
             this.Title2.Text = "Rent A Car Now";
-            this.Title2.Click += new System.EventHandler(this.label2_Click);
+           
             // 
             // label1
             // 
@@ -74,7 +73,6 @@
             this.label1.Size = new System.Drawing.Size(217, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "Customer Name";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // textBox1
             // 
@@ -110,7 +108,6 @@
             this.label2.Size = new System.Drawing.Size(363, 32);
             this.label2.TabIndex = 6;
             this.label2.Text = "Pickup Date / Drop off Date";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // comboBox1
             // 
@@ -131,7 +128,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(388, 37);
             this.comboBox1.TabIndex = 7;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            
             // 
             // label3
             // 
@@ -162,7 +159,6 @@
             this.label4.Size = new System.Drawing.Size(190, 32);
             this.label4.TabIndex = 10;
             this.label4.Text = "Customer NIC";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox2
             // 

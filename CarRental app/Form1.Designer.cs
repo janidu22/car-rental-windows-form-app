@@ -116,17 +116,6 @@
             // 
             this.CbTypeOfCar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbTypeOfCar.FormattingEnabled = true;
-            this.CbTypeOfCar.Items.AddRange(new object[] {
-            "Toyota Yaris",
-            "Honda Fit",
-            "Nissan Versa",
-            "Hyundai Accent",
-            "Kia Rio",
-            "Toyota Corolla",
-            "Honda Civic",
-            "Nissan Altima",
-            "Hyundai Elantra",
-            "Mazda 3"});
             this.CbTypeOfCar.Location = new System.Drawing.Point(58, 465);
             this.CbTypeOfCar.Name = "CbTypeOfCar";
             this.CbTypeOfCar.Size = new System.Drawing.Size(388, 37);

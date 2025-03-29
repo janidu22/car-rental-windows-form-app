@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Title = new System.Windows.Forms.Label();
             this.Title2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,12 +37,20 @@
             this.DtReturned = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.CbTypeOfCar = new System.Windows.Forms.ComboBox();
+            this.typeOfCarBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.carRentalDataSet = new CarRental_app.CarRentalDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnBooking = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtCustomerNic = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtCost = new System.Windows.Forms.TextBox();
+            this.typeOfCarTableAdapter = new CarRental_app.CarRentalDataSetTableAdapters.TypeOfCarTableAdapter();
+            this.fillByToolStrip = new System.Windows.Forms.ToolStrip();
+            this.fillByToolStripButton = new System.Windows.Forms.ToolStripButton();
+            ((System.ComponentModel.ISupportInitialize)(this.typeOfCarBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDataSet)).BeginInit();
+            this.fillByToolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // Title
@@ -121,6 +130,16 @@
             this.CbTypeOfCar.Size = new System.Drawing.Size(388, 37);
             this.CbTypeOfCar.TabIndex = 7;
             // 
+            // typeOfCarBindingSource
+            // 
+            this.typeOfCarBindingSource.DataMember = "TypeOfCar";
+            this.typeOfCarBindingSource.DataSource = this.carRentalDataSet;
+            // 
+            // carRentalDataSet
+            // 
+            this.carRentalDataSet.DataSetName = "CarRentalDataSet";
+            this.carRentalDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -181,12 +200,35 @@
             this.TxtCost.Size = new System.Drawing.Size(437, 45);
             this.TxtCost.TabIndex = 13;
             // 
+            // typeOfCarTableAdapter
+            // 
+            this.typeOfCarTableAdapter.ClearBeforeFill = true;
+            // 
+            // fillByToolStrip
+            // 
+            this.fillByToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.fillByToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillByToolStripButton});
+            this.fillByToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.fillByToolStrip.Name = "fillByToolStrip";
+            this.fillByToolStrip.Size = new System.Drawing.Size(1086, 27);
+            this.fillByToolStrip.TabIndex = 14;
+            this.fillByToolStrip.Text = "fillByToolStrip";
+            // 
+            // fillByToolStripButton
+            // 
+            this.fillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.fillByToolStripButton.Name = "fillByToolStripButton";
+            this.fillByToolStripButton.Size = new System.Drawing.Size(48, 24);
+            this.fillByToolStripButton.Text = "FillBy";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1086, 565);
+            this.Controls.Add(this.fillByToolStrip);
             this.Controls.Add(this.TxtCost);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.TxtCustomerNic);
@@ -203,6 +245,11 @@
             this.Controls.Add(this.Title);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.typeOfCarBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.carRentalDataSet)).EndInit();
+            this.fillByToolStrip.ResumeLayout(false);
+            this.fillByToolStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,6 +271,11 @@
         private System.Windows.Forms.TextBox TxtCustomerNic;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtCost;
+        private CarRentalDataSet carRentalDataSet;
+        private System.Windows.Forms.BindingSource typeOfCarBindingSource;
+        private CarRentalDataSetTableAdapters.TypeOfCarTableAdapter typeOfCarTableAdapter;
+        private System.Windows.Forms.ToolStrip fillByToolStrip;
+        private System.Windows.Forms.ToolStripButton fillByToolStripButton;
     }
 }
 

@@ -12,9 +12,12 @@ namespace CarRental_app
 {
     public partial class Form1 : Form
     {
+        private readonly CarRentalEntities carRentalEntities;
+
         public Form1()
         {
             InitializeComponent();
+            carRentalEntities = new CarRentalEntities();
         }
 
         private void BtnBooking_Click(object sender, EventArgs e)
@@ -87,5 +90,16 @@ namespace CarRental_app
             }
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var cars = carRentalEntities.TypeOfCars.ToList();
+            CbTypeOfCar.DisplayMember = "name";
+            CbTypeOfCar.ValueMember = "id";
+            CbTypeOfCar.DataSource = cars;
+
+        }
+
+       
     }
 }

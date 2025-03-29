@@ -19,56 +19,71 @@ namespace CarRental_app
 
         private void BtnBooking_Click(object sender, EventArgs e)
         {
-            // customer details/billing details
-            string CustomerName = TxtCustomerName.Text;
-            string CustomerNic = TxtCustomerNic.Text;
-            DateTime dayRented = DtRented.Value;
-            DateTime dayReturned = DtReturned.Value;
-            double cost = 0;
-
-            // input validation
-            var isValid = true;
-
-            if (string.IsNullOrEmpty(CustomerName) 
-                || string.IsNullOrEmpty(CustomerNic)
-                || !double.TryParse(TxtCost.Text, out cost)                 
-                )
+            try
             {
-                isValid = false;
-                MessageBox.Show("All the inputs are required!..");
+                // customer details/billing details
+                string CustomerName = TxtCustomerName.Text;
+                string CustomerNic = TxtCustomerNic.Text;
+                DateTime dayRented = DtRented.Value;
+                DateTime dayReturned = DtReturned.Value;
+                double cost = 0;
+
+                // input validation
+                var isValid = true;
+                var errorMsg = "";
+
+                if (string.IsNullOrEmpty(CustomerName)
+                    || string.IsNullOrEmpty(CustomerNic)
+                    || !double.TryParse(TxtCost.Text, out cost)
+                    )
+                {
+                    isValid = false;
+                   errorMsg += "All the inputs are required!..\n";
+                }
+
+
+
+                if (dayRented > dayReturned)
+                {
+                    isValid = false;
+                    errorMsg += "opss, invalid date selection\n";
+                }
+
+                if (cost < 0)
+                {
+                    isValid = false;
+                    errorMsg += "cost has to be higher than 0 LKR\n";
+                }
+
+                if (CbTypeOfCar.SelectedItem == null)
+                {
+                    isValid = false;
+                    errorMsg +=  "please select are car\n";
+                }
+
+                var carType = CbTypeOfCar.Text;
+
+                if (isValid)
+                {
+                    MessageBox.Show($"*****booking confirmed*****\n\r" +
+                                $"customer Name: {CustomerName}\n\r" +
+                                $"selected Car: {carType}\n\r" +
+                                $"day Rented: {dayRented}\n\r" +
+                                $"Day Return: {dayReturned}\n\r" +
+                                $"Total Cost: {cost} LKR\n\r" +
+                                $"Thanks for choosing us, have a nice day {CustomerName}");
+                }
+                else
+                {
+                    MessageBox.Show(errorMsg);
+                }
+
             }
-
-
-
-            if (dayRented > dayReturned)
+            catch (Exception ex)
             {
-                isValid = false;
-                MessageBox.Show("opss, invalid date selection");
-            }
 
-            if (cost < 0)
-            {
-                isValid = false;
-                MessageBox.Show("cost has to be higher than 0 LKR");
-            }
+                MessageBox.Show(ex.Message);
 
-            if (CbTypeOfCar.SelectedItem == null)
-            {
-                isValid = false;
-                MessageBox.Show("please select are car");
-            }
-
-            var carType = CbTypeOfCar.SelectedItem.ToString();
-            
-            if (isValid)
-            {
-                MessageBox.Show($"*****booking confirmed*****\n\r" +
-                    $"customer Name: {CustomerName}\n\r" +
-                    $"selected Car: {carType}\n\r" +
-                    $"day Rented: {dayRented}\n\r" +
-                    $"Day Return: {dayReturned}\n\r" +
-                    $"Total Cost: {cost} LKR\n\r" +
-                    $"Thanks for choosing us, have a nice day {CustomerName}");
             }
 
         }

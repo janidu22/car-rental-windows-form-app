@@ -46,7 +46,7 @@ namespace CarRental_app
 
 
 
-                if (dayRented > dayReturned)
+                if (dayRented >= dayReturned)
                 {
                     isValid = false;
                     errorMsg += "opss, invalid date selection\n";
@@ -68,6 +68,17 @@ namespace CarRental_app
 
                 if (isValid)
                 {
+                    var rentalRecords = new CarRentalRecord();
+                    rentalRecords.CustomerName = CustomerName;
+                    rentalRecords.CustomerNic = CustomerNic;
+                    rentalRecords.DateRented = dayRented;
+                    rentalRecords.DateReturned = dayReturned;
+                    rentalRecords.Cost = (decimal)cost;
+                    rentalRecords.TypeOfCarId = (int)CbTypeOfCar.SelectedValue;
+
+                    carRentalEntities.CarRentalRecords.Add(rentalRecords);
+                    carRentalEntities.SaveChanges();
+
                     MessageBox.Show($"*****booking confirmed*****\n\r" +
                                 $"customer Name: {CustomerName}\n\r" +
                                 $"selected Car: {carType}\n\r" +
